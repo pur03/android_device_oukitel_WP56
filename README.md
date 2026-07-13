@@ -1,1 +1,1 @@
-# android_device_oukitel_WP56
+TWRP device tree for the Oukitel WP56
