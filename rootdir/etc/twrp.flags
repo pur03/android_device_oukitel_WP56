@@ -1,0 +1,54 @@
+# mount point       fstype  device                                       flags
+# Core Boot & AVB Partitions (Slotted)
+/boot               emmc    /dev/block/by-name/boot                      flags=backup=1;flashimg=1;slotselect
+/vendor_boot        emmc    /dev/block/by-name/vendor_boot               flags=backup=1;flashimg=1;slotselect
+/init_boot          emmc    /dev/block/by-name/init_boot                 flags=backup=1;flashimg=1;slotselect
+/dtbo               emmc    /dev/block/by-name/dtbo                      flags=backup=1;flashimg=1;slotselect
+/vbmeta             emmc    /dev/block/by-name/vbmeta                    flags=backup=1;flashimg=1;slotselect
+/vbmeta_system      emmc    /dev/block/by-name/vbmeta_system             flags=backup=1;flashimg=1;slotselect
+/vbmeta_vendor      emmc    /dev/block/by-name/vbmeta_vendor             flags=backup=1;flashimg=1;slotselect
+
+# MediaTek Bootloader & Firmware (Slotted)
+/lk                 emmc    /dev/block/by-name/lk                        flags=backup=1;flashimg=1;slotselect
+/logo               emmc    /dev/block/by-name/logo                      flags=backup=1;flashimg=1;slotselect
+/spmfw              emmc    /dev/block/by-name/spmfw                     flags=backup=1;slotselect
+/tee1               emmc    /dev/block/by-name/tee1                      flags=backup=1;slotselect
+/tee2               emmc    /dev/block/by-name/tee2                      flags=backup=1;slotselect
+/scp1               emmc    /dev/block/by-name/scp1                      flags=backup=1;slotselect
+/scp2               emmc    /dev/block/by-name/scp2                      flags=backup=1;slotselect
+/sspm_1             emmc    /dev/block/by-name/sspm_1                    flags=backup=1;slotselect
+/sspm_2             emmc    /dev/block/by-name/sspm_2                    flags=backup=1;slotselect
+/mcupm_1            emmc    /dev/block/by-name/mcupm_1                   flags=backup=1;slotselect
+/mcupm_2            emmc    /dev/block/by-name/mcupm_2                   flags=backup=1;slotselect
+/gz1                emmc    /dev/block/by-name/gz1                       flags=backup=1;slotselect
+/gz2                emmc    /dev/block/by-name/gz2                       flags=backup=1;slotselect
+/cam_vpu1           emmc    /dev/block/by-name/cam_vpu1                  flags=backup=1;slotselect
+/cam_vpu2           emmc    /dev/block/by-name/cam_vpu2                  flags=backup=1;slotselect
+/cam_vpu3           emmc    /dev/block/by-name/cam_vpu3                  flags=backup=1;slotselect
+/audio_dsp          emmc    /dev/block/by-name/audio_dsp                 flags=backup=1;slotselect
+
+# Modems and Baseband (Slotted)
+/md1img             emmc    /dev/block/by-name/md1img                    flags=backup=1;slotselect
+/md1dsp             emmc    /dev/block/by-name/md1dsp                    flags=backup=1;slotselect
+/md1arm7            emmc    /dev/block/by-name/md1arm7                   flags=backup=1;slotselect
+/md3img             emmc    /dev/block/by-name/md3img                    flags=backup=1;slotselect
+
+# NVRAM, IMEI, & MAC Data (Grouped under NVRAM)
+/nvram              emmc    /dev/block/by-name/nvram                     flags=backup=1;flashimg=1
+/nvdata             ext4    /dev/block/by-name/nvdata                    flags=backup=1;subpartitionof=/nvram
+/nvcfg              ext4    /dev/block/by-name/nvcfg                     flags=backup=1;subpartitionof=/nvram
+/protect_f          ext4    /dev/block/by-name/protect1                  flags=backup=1;subpartitionof=/nvram
+/protect_s          ext4    /dev/block/by-name/protect2                  flags=backup=1;subpartitionof=/nvram
+
+# Other Misc Partitions (Not slotted)
+/proinfo            emmc    /dev/block/by-name/proinfo                   flags=backup=1
+/seccfg             emmc    /dev/block/by-name/seccfg                    flags=backup=1
+/misc               emmc    /dev/block/by-name/misc                      flags=backup=1
+/para               emmc    /dev/block/by-name/para                      flags=backup=1
+/expdb              emmc    /dev/block/by-name/expdb                     flags=backup=1
+/otp                emmc    /dev/block/by-name/otp                       flags=backup=1
+/persistent         emmc    /dev/block/by-name/frp                       flags=backup=1
+
+# External Storage (MicroSD and USB-OTG)
+/external_sd        auto    /dev/block/mmcblk0p1  /dev/block/mmcblk0     flags=display="MicroSD Card";storage;wipeingui;removable
+/usb_otg            auto    /dev/block/sdd1       /dev/block/sdd         flags=display="USB-OTG";storage;wipeingui;removable

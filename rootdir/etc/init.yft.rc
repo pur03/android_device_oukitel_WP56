@@ -1,0 +1,275 @@
+# YFT common .rc configure
+
+# fingerprint
+import ${ro.vendor.rc}init.fingerprint.rc
+# YFT platform .rc configure
+import ${ro.vendor.rc}init.yft.platform.rc
+# YFT Bill add swap.rc configure
+import ${ro.vendor.rc}init.yftswap.rc
+
+on post-fs-data
+# YFT.chris lepton
+    mkdir /mnt/vendor/nvcfg/FLIR
+    chown system system /mnt/vendor/nvcfg/FLIR
+    chmod 0771 /mnt/vendor/nvcfg/FLIR
+    restorecon_recursive /mnt/vendor/nvcfg/FLIR
+
+# YFT.liuyang InfiRay
+    mkdir /mnt/vendor/nvcfg/infiray
+    chown system system /mnt/vendor/nvcfg/infiray
+    chmod 0771 /mnt/vendor/nvcfg/infiray
+    restorecon_recursive /mnt/vendor/nvcfg/infiray
+
+on boot
+    chmod 0666 /sys/class/leds/red/brightness
+    chown system system /sys/class/leds/red/brightness
+    chmod 0666 /sys/class/leds/green/brightness
+    chown system system /sys/class/leds/green/brightness
+    chmod 0666 /sys/class/leds/blue/brightness
+    chown system system /sys/class/leds/blue/brightness
+
+# YFT.chris temperature sensor
+    chown system system /sys/bus/i2c/drivers/fm78100-sensor/chip_power
+    chmod 0777 /sys/bus/i2c/drivers/fm78100-sensor/chip_power
+    chown system system /sys/bus/i2c/drivers/fm78100-sensor/chip_enable
+    chmod 0777 /sys/bus/i2c/drivers/fm78100-sensor/chip_enable
+    chown system system /sys/bus/i2c/drivers/fm78100-sensor/chip_exist
+    chmod 0777 /sys/bus/i2c/drivers/fm78100-sensor/chip_exist
+    chown system system /sys/bus/i2c/drivers/fm78100-sensor/mems_temp
+    chmod 0777 /sys/bus/i2c/drivers/fm78100-sensor/mems_temp
+    chown system system /sys/bus/i2c/drivers/fm78100-sensor/ntc_temp
+    chmod 0777 /sys/bus/i2c/drivers/fm78100-sensor/ntc_temp
+    chown system system /sys/bus/i2c/drivers/fm78100-sensor/objs_temp
+    chmod 0777 /sys/bus/i2c/drivers/fm78100-sensor/objs_temp
+
+# flashlight
+    chmod 0777 sys/devices/virtual/flashlight_core/flashlight/flashlight_contrl
+    chown system radio sys/devices/virtual/flashlight_core/flashlight/flashlight_contrl
+    
+# gloves mode
+    chmod 0777 /sys/devices/platform/soc/1100a000.spi0/spi_master/spi0/spi0.0/fts_glove_mode
+    chown system radio /sys/devices/platform/soc/1100a000.spi0/spi_master/spi0/spi0.0/fts_glove_mode
+    chmod 0777 /sys/devices/platform/11018000.spi4/spi_master/spi4/spi4.0/fts_glove_mode
+    chown system radio /sys/devices/platform/11018000.spi4/spi_master/spi4/spi4.0/fts_glove_mode
+    chmod 0777 /sys/devices/platform/11f00000.i2c0/i2c-0/0-0038/fts_glove_mode
+    chown system radio /sys/devices/platform/11f00000.i2c0/i2c-0/0-0038/fts_glove_mode
+    chmod 0777 /sys/devices/platform/11f00000.i2c0/i2c-0/0-0048/misc/glove_en
+    chown system radio /sys/devices/platform/11f00000.i2c0/i2c-0/0-0048/misc/glove_en
+    chmod 0777 /sys/devices/platform/11f00000.i2c0/i2c-0/0-0041/ilitek_glove_mode
+    chown system radio /sys/devices/platform/11f00000.i2c0/i2c-0/0-0041/ilitek_glove_mode
+    chmod 0777 /sys/class/yft_tpd_class/glove_mode
+    chown system radio /sys/class/yft_tpd_class/glove_mode
+    chmod 0777 /sys/devices/platform/soc/11013000.spi3/spi_master/spi3/spi3.0/fts_glove_mode
+    chown system /sys/devices/platform/soc/11013000.spi3/spi_master/spi3/spi3.0/fts_glove_mode
+    chmod 0777 /sys/devices/platform/soc/11016000.spi6/spi_master/spi6/spi6.0/fts_glove_mode
+    chown system /sys/devices/platform/soc/11016000.spi6/spi_master/spi6/spi6.0/fts_glove_mode
+    chmod 0777 /sys/devices/platform/11018000.spi4/spi_master/spi4/spi4.1/misc/glove_mode_en
+    chown system /sys/devices/platform/11018000.spi4/spi_master/spi4/spi4.1/misc/glove_mode_en
+
+# esim switch 
+    chmod 0777 /sys/devices/platform/yft_device/esim_switch
+    chown system system /sys/devices/platform/yft_device/esim_switch
+
+# yft liuyang add for smartpa calibration
+    chmod 0666 /sys/class/fs16xx/fsm_re25
+    chmod 0666 /sys/bus/i2c/drivers/speaker_amp/6-0034/dsp_re
+
+# YFT.chris lepton
+    chown system system /dev/lepton_drv
+    chmod 660 /dev/lepton_drv
+
+# DAZHI.Eddie add InfiSense
+    chown system system /sys/bus/spi/drivers/spidev/tiny1c_power_enable
+    chmod 666 /sys/bus/spi/drivers/spidev/tiny1c_power_enable
+
+# yft tom for fm switch
+    chown system system /sys/devices/platform/soc/soc:yft_device/yft_fm_switch
+    chmod 0777 /sys/devices/platform/soc/soc:yft_device/yft_fm_switch
+    chown system system /sys/class/yft_device/yft_fm_switch
+    chmod 0777 /sys/class/yft_device/yft_fm_switch
+
+
+    chown system system /sys/devices/platform/11d00000.i2c5/i2c-5/5-0034/mt6360_pmu_rgbled.4.auto/leds/mt6360_pmu_led4/brightness
+    chmod 0777 /sys/devices/platform/11d00000.i2c5/i2c-5/5-0034/mt6360_pmu_rgbled.4.auto/leds/mt6360_pmu_led4/brightness
+
+# yft add for data/anr/binderinfo copy fail
+    chmod 0666 /data/anr/binderinfo
+
+# dazhi Alistar add for dazhi Night Vision Light Test
+    chmod 0666 /sys/devices/virtual/flashlight_core/flashlight/flashlight_sw_ctrl
+    chmod 0666 /sys/class/flashlight_core/flashlight_sw_ctrl
+    chmod 0666 /sys/devices/virtual/flashlight_core/flashlight/flashlight_torch
+    
+# yft Alistar add for Camping Light test
+    chmod 0666 /sys/devices/platform/soc/soc:gftk_camplight/camplight_mode
+
+    # Infrared
+    chmod 0666 /sys/bus/platform/drivers/irled-gpio/irmotor
+    chown system system /sys/bus/platform/drivers/irled-gpio/irmotor
+# yft leen add udfps
+    chown system system /sys/bus/platform/drivers/yft_finger/tplcd_pattern
+    chmod 0777 /sys/bus/platform/drivers/yft_finger/tplcd_pattern
+
+# yft Eddie add for cover open close
+    chmod 0666 /sys/devices/platform/soc/11e00000.i2c/i2c-0/0-0062/nvt_sysfs_group/nvt_sensitivity_switch
+
+# m129 key issue
+    chmod 666 /sys/devices/platform/soc/soc:yft_customkey_f2@0/key_f2_irq_ctl
+    chown system system /sys/devices/platform/soc/soc:yft_customkey_f2@0/key_f2_irq_ctl
+
+# Bill add aging test maintain battery level
+    chmod 0777 /sys/devices/platform/charger/input_current
+    chown system radio  /sys/devices/platform/charger/input_current
+    chmod 0777 /sys/devices/platform/charger/enable_hv_charging
+    chown system radio  /sys/devices/platform/charger/enable_hv_charging
+
+# yft silence add for battery protection node
+    chmod 0777 /sys/devices/platform/charger/yft_charging_current
+    chown system radio  /sys/devices/platform/charger/yft_charging_current
+
+# yft silence add for smart Long Charging Enabled for FM (Cut off the current to the battery terminal)
+    chmod 0777 /sys/devices/platform/charger/chr_protection
+    chown system radio  /sys/devices/platform/charger/chr_protection
+
+
+
+# alistar add qc gloves mode
+    chmod 0666 /sys/devices/platform/soc/1100a000.spi0/spi_master/spi0/spi0.1/nvt_sysfs_group/nvt_sensitivity_switch
+    chmod 0666 /sys/devices/platform/soc/1100a000.spi0/spi_master/spi0/spi0.0/misc/glove_mode_en
+
+# alistar add macroLens flashe path
+    chmod 0666 /sys/devices/platform/gpioleds/leds/cam_fled/brightness
+    
+#lichengyang add infrared remote control 
+    chown system system /dev/ctrl
+    chmod 0777 /dev/ctrl
+    chmod 0777 /dev/lirc0
+    
+# yft add for InfiSense eco160 @{
+    chown system system /dev/i2c-8
+    chmod 666 /dev/i2c-8
+
+    chown system system /dev/shutter
+    chmod 666 /dev/shutter
+
+    chown system system /sys/devices/platform/soc/11db3000.i2c/i2c-8/8-0050/eeprom
+    chmod 666 /sys/devices/platform/soc/11db3000.i2c/i2c-8/8-0050/eeprom
+# @}
+
+# yft.aland.2024.03.22.pixsmart algo.
+    mkdir /data/vendor/pixsmart
+    chown root system /data/vendor/pixsmart
+    chmod 0771 /data/vendor/pixsmart
+    
+# yft.liuwenbo.add for morpho sr.
+    mkdir /data/vendor/camera
+    chown root system /data/vendor/camera
+    chmod 0771 /data/vendor/camera
+    
+# yft add for Reverse charging
+    chmod 0666 /sys/class/wireless_charger/reverse_charger
+    chmod 0666 /sys/class/wireless_charger/rxdetect
+    chmod 0666 /sys/devices/platform/11283000.i2c/i2c-13/13-002b/mt5786group/reverse_charger
+
+# yft zhongchenglin
+    chmod 0777 /sys/devices/virtual/flashlight_core/flashlight/flashlight_torch
+    chown system radio /sys/devices/virtual/flashlight_core/flashlight/flashlight_torch
+    
+# yft lijiangbo for m190 camping light
+    chmod 0777 /sys/devices/platform/yft_camplight/camplight_mode
+    chmod 0777 /sys/devices/platform/yft_camplight/leds_ctl 
+
+# yft bill minilcd
+    chmod 0777 /sys/class/second_gesture_tp/yft_gesture_status
+
+# yft zhongchenglin add projection test
+    chown system system /sys/class/dlp3430/motor_ctrl
+    chmod 0777 /sys/class/dlp3430/motor_ctrl
+    chown system system /sys/devices/platform/yft_pwm_fan/fan_mode
+    chmod 0777 /sys/devices/platform/yft_pwm_fan/fan_mode
+
+# yft silence add for yf usb camera
+    chmod 0666 /sys/devices/platform/yft_tiny2c_usb/tiny2c_usb_mode
+    chmod 0666 /sys/devices/platform/soc/11211000.usb1/mode
+    chmod 0666 /sys/class/yft_extcon/tiny2c_mode
+
+# yft ljb add for endoscope test
+    chmod 0777 /sys/devices/platform/extcon-usb/uvc_insert_status
+
+# add yft lcy for 173 breathing light
+    chmod 0777 /sys/devices/platform/soc/11c24000.i2c/i2c-9/9-006a/leds/aw22xxx_led/effect
+    chown system radio /sys/devices/platform/soc/11c24000.i2c/i2c-9/9-006a/leds/aw22xxx_led/effect
+    chmod 0777 /sys/devices/platform/soc/11c24000.i2c/i2c-9/9-006a/leds/aw22xxx_led/cfg
+    chown system radio /sys/devices/platform/soc/11c24000.i2c/i2c-9/9-006a/leds/aw22xxx_led/cfg
+
+    chmod 0777 /sys/devices/platform/11d03000.i2c9/i2c-9/9-006a/leds/aw22xxx_led/effect
+    chown system radio /sys/devices/platform/11d03000.i2c9/i2c-9/9-006a/leds/aw22xxx_led/effect
+    chmod 0777 /sys/devices/platform/11d03000.i2c9/i2c-9/9-006a/leds/aw22xxx_led/cfg
+    chown system radio /sys/devices/platform/11d03000.i2c9/i2c-9/9-006a/leds/aw22xxx_led/cfg
+    chmod 0777 /sys/devices/platform/11d03000.i2c9/i2c-9/9-006a/leds/aw22xxx_led/imax
+    chown system radio /sys/devices/platform/11d03000.i2c9/i2c-9/9-006a/leds/aw22xxx_led/imax
+    chmod 0777 /sys/devices/platform/11d03000.i2c9/i2c-9/9-006a/leds/aw22xxx_led/gain
+    chown system radio /sys/devices/platform/11d03000.i2c9/i2c-9/9-006a/leds/aw22xxx_led/gain
+
+# zhongchenglin add digital hall test
+    chmod 0777 /sys/bus/i2c/drivers/as1509-sensor/angle_z
+
+# yft silence add for dual galvanometer
+    chmod 0666 /sys/devices/platform/11d01000.i2c/i2c-1/1-0064/fg_main_soc
+    chmod 0666 /sys/devices/platform/11d01000.i2c/i2c-1/1-0064/fg_main_curr
+    chmod 0666 /sys/devices/platform/11d01000.i2c/i2c-1/1-0064/fg_main_vbat
+    chmod 0666 /sys/devices/platform/11d01000.i2c/i2c-1/1-0064/fg_main_tbat
+    chmod 0666 /sys/devices/platform/11b72000.i2c/i2c-10/10-0064/fg_sub_soc
+    chmod 0666 /sys/devices/platform/11b72000.i2c/i2c-10/10-0064/fg_sub_curr
+    chmod 0666 /sys/devices/platform/11b72000.i2c/i2c-10/10-0064/fg_sub_vbat
+    chmod 0666 /sys/devices/platform/11b72000.i2c/i2c-10/10-0064/fg_sub_tbat
+
+# yft sunyue add for stnfc
+    chmod 0660 /dev/st21nfc
+    chown nfc nfc /dev/st21nfc
+
+# yft ljb add for GQ Thermal imaging single soft multi hard
+    chmod 0666 /sys/devices/platform/yft_tiny2c_usb/sensor_id
+
+# add yft lcy for 1703 breathing light
+    chmod 0777 /sys/devices/platform/11d03000.i2c9/i2c-9/9-006a/leds/aw22xxx_led/effect
+    chown system system /sys/devices/platform/11d03000.i2c9/i2c-9/9-006a/leds/aw22xxx_led/effect
+    chmod 0777 /sys/devices/platform/11d03000.i2c9/i2c-9/9-006a/leds/aw22xxx_led/cfg
+    chown system system /sys/devices/platform/11d03000.i2c9/i2c-9/9-006a/leds/aw22xxx_led/cfg
+
+    chmod 0777 /sys/class/flashlight_core/flashlight_sw_ctrl
+    chown system system /sys/class/flashlight_core/flashlight_sw_ctrl
+
+#yft zhongchenglin add Camping Light Hall
+    chmod 0777 /sys/class/water_detection/device/switch
+    chmod 0777 /sys/class/yft_hall/hall_event
+
+#add  lcy for  glove mode
+    chmod 0777 /sys/devices/platform/11018000.spi4/spi_master/spi4/spi4.0/fts_glove_mode
+    chown system system /sys/devices/platform/11018000.spi4/spi_master/spi4/spi4.0/fts_glove_mode
+
+# yft yuanliang add for microarray fp ata test
+    chmod 0777 /sys/devices/platform/11019000.spi5/spi_master/spi5/spi5.0/chip_id
+    chown system system /sys/devices/platform/11019000.spi5/spi_master/spi5/spi5.0/chip_id
+
+
+# yft silence add for hbm mode
+    chmod 0666 /sys/class/primary_lcm/set_hbm_backlight
+
+# yft zx add for reverse charging
+    chmod 0777 /sys/class/reverse_chg/reverse_charging_level
+
+# yft zhongchenglin add breathing lamp test
+    chmod 0777 /sys/devices/platform/yft_onelinectrl_led/onelinectrl_led_mode
+
+# yft sunshine add Charging current limit
+    chmod 0777 /sys/devices/platform/pe5/pca_custom_ita
+    chmod 0777 /sys/devices/platform/yft_device/yft_burn_in_test
+
+# yft silene add for soft simulation battery health
+    mkdir /mnt/vendor/nvcfg/battery
+    chown system system /mnt/vendor/nvcfg/battery
+    chmod 0771 /mnt/vendor/nvcfg/battery
+    restorecon_recursive /mnt/vendor/nvcfg/battery
+
+

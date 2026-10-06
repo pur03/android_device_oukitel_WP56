@@ -1,0 +1,18 @@
+# Miscellaneous
+persist.wm.extensions.enabled=true
+remote_provisioning.hostname=remoteprovisioning.googleapis.com
+ro.com.google.clientidbase=android-sztem
+ro.com.google.gmsversion=15_202503
+ro.config.alarm_alert=Alarm_default.ogg
+ro.config.notification_sound=Notify_default.ogg
+ro.config.ringtone=Ring_default.ogg
+ro.config.ringtone2=Ring_default.ogg
+ro.dalvik.vm.enable_uffd_gc=true
+ro.opa.eligible_device=true
+ro.product.build.16k_page.enabled=false
+ro.product.build.no_bionic_page_size_macro=true
+ro.product.cpu.pagesize.max=16384
+ro.product.custom.version=OUKITEL_WP56_EEA_V20_20260402
+ro.setupwizard.rotation_locked=true
+setupwizard.theme=glif_v3_light
+
