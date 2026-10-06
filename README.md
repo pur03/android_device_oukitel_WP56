@@ -15,6 +15,7 @@ TWRP Device Tree for the Oukitel WP56
 | Battery percentage | Working |
 | CPU temperature | Working |
 | MTP | Not implemented |
+| Vibration | Not implemented |
 | Data decryption | Not implemented |
 
 ## Building
