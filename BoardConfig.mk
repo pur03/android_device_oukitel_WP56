@@ -119,7 +119,7 @@ DEVICE_MANIFEST_FILE += $(DEVICE_PATH)/manifest.xml
 # TWRP
 # ============================================================================
 TW_THEME := portrait_hdpi
-TW_DEVICE_VERSION := WP56_purpl3
+TW_DEVICE_VERSION := purpl3_WP56
 TW_INCLUDE_FASTBOOTD := true
 TW_INCLUDE_REPACKTOOLS := true
 TW_INCLUDE_RESETPROP := true
